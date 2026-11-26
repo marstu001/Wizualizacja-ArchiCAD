@@ -1,0 +1,68 @@
+<?php declare(strict_types=1);
+
+const PROFILE = [
+	'muzyka' => [
+	'nazwa'       => 'mySpotify',
+	'tabela'      => 'song',
+	'id'          => 'ids',
+	'tytul'       => 'title',
+	'autor'       => 'musician',
+	'tekst'       => 'lyrics',
+	'plik'        => 'filename',
+	'gat'         => 'idmt',
+	'gat_tabela'  => 'musictype',
+	'gat_nazwa'   => 'name',
+	'katalog'     => 'songs',
+	'roz'         => 'mp3',
+	'mime'        => 'audio/mpeg',
+	'tag'         => 'audio',
+	'napisy_vtt'  => false,
+	'jedn'        => 'utwór',
+	'mn'          => 'utwory',
+	'dop'         => 'utworu',
+	'dop_mn'      => 'utworów',
+	'moje'        => 'Moje utwory',
+	'autor_l'     => 'Wykonawca',
+	'tekst_l'     => 'Tekst piosenki',
+	'ikona'       => 'bi-music-note-beamed',
+	'gatunki'     => ['pop', 'rock', 'hip-hop', 'electronic dance', 'R&B', 'latin', 'country', 'metal', 'jazz', 'classic', 'inny'],
+	'pref'        => 'muz_',
+	'pl_n'        => 'playlistname',
+	'pl_d'        => 'playlistdatabase',
+	],
+	'film' => [
+	'nazwa'       => 'myNetflix',
+	'tabela'      => 'film',
+	'id'          => 'idf',
+	'tytul'       => 'title',
+	'autor'       => 'director',
+	'tekst'       => 'subtitles',
+	'plik'        => 'filename',
+	'gat'         => 'idft',
+	'gat_tabela'  => 'filmtype',
+	'gat_nazwa'   => 'name',
+	'katalog'     => 'films',
+	'roz'         => 'mp4',
+	'mime'        => 'video/mp4',
+	'tag'         => 'video',
+	'napisy_vtt'  => true,
+	'jedn'        => 'film',
+	'mn'          => 'filmy',
+	'dop'         => 'filmu',
+	'dop_mn'      => 'filmów',
+	'moje'        => 'Moje filmy',
+	'autor_l'     => 'Reżyser',
+	'tekst_l'     => 'Napisy',
+	'ikona'       => 'bi-film',
+	'gatunki'     => ['dokument', 'reportaż', 'publicystyka', 'film akcji', 'sci-fi', 'horror', 'familijny', 'przyrodniczy', 'koncert', 'animowany', 'inny'],
+	'pref'        => 'film_',
+	'pl_n'        => 'filmplaylistname',
+	'pl_d'        => 'filmplaylistdatabase',
+	],
+];
+
+function profil_nazwa(): string
+{
+	if (!empty($GLOBALS['PROFIL_WYMUSZONY'])) { return (string)$GLOBALS['PROFIL_WYMUSZONY']; }
+	return strncmp(basename((string)($_SERVER['SCRIPT_NAME'] ?? '')), 'film_', 5) === 0 ? 'film' : 'muzyka';
+}
