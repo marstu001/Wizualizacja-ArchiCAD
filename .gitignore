@@ -1,0 +1,5 @@
+# pliki użytkowników i avatary nie należą do repozytorium
+dysk/
+media/
+# jednorazowy skrypt instalacyjny z hasłami nie jest potrzebny po wdrożeniu
+utworz_tabele.php
