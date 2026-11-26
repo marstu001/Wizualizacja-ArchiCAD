@@ -1,0 +1,108 @@
+.p-menu .nav-link { border-radius: 2rem; padding: .4rem .9rem; }
+.p-menu .nav-link i { margin-right: .2rem; }
+.p-karta-ui { background: #fff; border-radius: 1rem; box-shadow: 0 1px 4px rgba(0,0,0,.12); }
+
+.p-uklad { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 1rem; align-items: start; }
+@media (max-width: 991.98px) { .p-uklad { grid-template-columns: 1fr; } }
+
+.p-boczny { padding: .8rem; display: flex; flex-direction: column; gap: .6rem; }
+.p-boczny h2 { font-size: 1rem; margin: 0; }
+.p-lista { max-height: 62vh; overflow: auto; display: flex; flex-direction: column; gap: .25rem; }
+.p-poz { display: flex; align-items: center; gap: .5rem; padding: .3rem .4rem; border-radius: .7rem; cursor: pointer; user-select: none; }
+.p-poz:hover { background: #eef3fb; }
+.p-poz img { width: 34px; height: 34px; flex: 0 0 34px; }
+.p-poz .p-poz-t { min-width: 0; line-height: 1.15; }
+.p-poz .p-poz-t b { display: block; font-size: .88rem; }
+.p-poz .p-poz-t small { color: #6b7280; font-size: .75rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+.p-poz.poza { background: #fff7e6; }
+.edycja .p-poz.poza { cursor: grab; }
+
+.p-glowny { padding: .8rem; }
+.p-pasek { display: flex; flex-wrap: wrap; gap: .5rem .9rem; align-items: center; margin-bottom: .7rem; }
+.p-pasek .btn-group .btn { padding: .25rem .7rem; }
+.p-warstwy { display: flex; flex-wrap: wrap; gap: .3rem .8rem; align-items: center; }
+
+.p-wrap { position: relative; }
+.p-plansza { position: relative; width: calc(100% - 3rem); margin: 1.5rem auto; container-type: inline-size; background: #fff; border: 0; border-radius: 0; overflow: visible; touch-action: none; }
+.p-plansza > img.p-tlo, .p-plansza > img.p-warstwa { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; user-select: none; }
+.p-plansza > img.p-tlo { position: relative; }
+.p-plansza > img.p-warstwa { mix-blend-mode: multiply; }
+
+.p-el { position: absolute; z-index: 5; }
+.p-srodek { aspect-ratio: 1; cursor: pointer; }
+.p-srodek img { width: 100%; height: 100%; display: block; filter: drop-shadow(0 1px 2px rgba(0,0,0,.4)); pointer-events: none; }
+.p-et { position: absolute; left: 50%; top: 100%; transform: translateX(-50%); margin-top: 1px; font-size: max(8px, .95cqw); line-height: 1.15; font-weight: 700; color: #0b2447; background: rgba(255,255,255,.88); border: 1px solid #c3cfe0; border-radius: .3rem; padding: 0 .25em; white-space: nowrap; pointer-events: none; }
+.etykiety-wyl .p-et { display: none; }
+.p-mala .p-et { display: none; }
+.p-mala:hover .p-et, .p-mala.wyroznij .p-et, .p-mala.przeciaga .p-et { display: block; z-index: 70; }
+.edycja .p-el.mozna { cursor: grab; outline: 1px dashed rgba(13,110,253,.7); outline-offset: 2px; }
+.p-el.przeciaga { cursor: grabbing !important; z-index: 60; opacity: .9; }
+.p-el.wyroznij { z-index: 55; outline: 3px solid #fd7e14; outline-offset: 3px; border-radius: .3rem; animation: p-miga 1s ease-in-out 3; }
+.p-el.ukryty { display: none; }
+@keyframes p-miga { 50% { outline-color: transparent; } }
+
+.p-prac { aspect-ratio: 1; cursor: pointer; border-radius: 50%; border: max(3px, .3cqw) solid #198754; background: #fff; }
+.p-prac .p-foto { width: 100%; height: 100%; display: block; border-radius: 50%; object-fit: cover; pointer-events: none; }
+.p-prac .p-et { color: #0b2447; }
+.p-odznaka { position: absolute; right: -34%; bottom: -26%; font-size: max(10px, 1.2cqw); line-height: 1; background: #fff; border-radius: 50%; padding: .12em; box-shadow: 0 1px 3px rgba(0,0,0,.4); pointer-events: none; }
+.p-prac.ramka-zielona { border-color: #198754; }
+.p-prac.ramka-szara { border-color: #6c757d; }
+.p-prac.ramka-zolta { border-color: #ffc107; }
+.p-prac.ramka-czerwona { border-color: #dc3545; }
+.p-prac.stan-6 .p-foto { filter: grayscale(1); }
+.p-prac.stan-7 .p-foto { filter: sepia(1) saturate(5) hue-rotate(-12deg) brightness(1.15); }
+.p-prac.stan-8 .p-foto { filter: sepia(1); }
+.p-prac.stan-2 { animation: p-puls-n 1.6s ease-out infinite; }
+.p-prac.stan-4 { animation: p-puls-c 1.6s ease-out infinite; }
+.p-prac.stan-5 { animation: p-puls-z 1.6s ease-out infinite; }
+@keyframes p-puls-n { 0% { box-shadow: 0 0 0 0 rgba(13,110,253,.85); } 100% { box-shadow: 0 0 0 max(10px, 1.3cqw) rgba(13,110,253,0); } }
+@keyframes p-puls-c { 0% { box-shadow: 0 0 0 0 rgba(220,53,69,.85); } 100% { box-shadow: 0 0 0 max(10px, 1.3cqw) rgba(220,53,69,0); } }
+@keyframes p-puls-z { 0% { box-shadow: 0 0 0 0 rgba(25,135,84,.85); } 100% { box-shadow: 0 0 0 max(10px, 1.3cqw) rgba(25,135,84,0); } }
+
+.p-duch { position: fixed; z-index: 2000; width: 54px; height: 54px; pointer-events: none; opacity: .9; transform: translate(-50%, -50%); filter: drop-shadow(0 4px 8px rgba(0,0,0,.4)); }
+
+.p-info { position: absolute; z-index: 70; top: .6rem; right: .6rem; width: min(320px, calc(100% - 1.2rem)); background: #fff; border-radius: .9rem; box-shadow: 0 6px 24px rgba(0,0,0,.28); padding: .8rem .9rem; }
+.p-info h3 { font-size: 1rem; margin: 0 0 .4rem; padding-right: 1.6rem; }
+.p-info dl { display: grid; grid-template-columns: auto 1fr; gap: .15rem .7rem; margin: 0 0 .6rem; font-size: .87rem; }
+.p-info dt { color: #6b7280; font-weight: 500; }
+.p-info dd { margin: 0; }
+.p-info .p-zamknij { position: absolute; top: .4rem; right: .5rem; }
+.p-info .p-zdjecie { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; float: right; margin: 0 0 .4rem .5rem; }
+
+.p-legenda { display: flex; flex-wrap: wrap; gap: .4rem .9rem; margin-top: .7rem; font-size: .83rem; align-items: center; }
+.p-legenda span { display: inline-flex; align-items: center; gap: .3rem; }
+.p-legenda i.p-kropka { width: 14px; height: 14px; border-radius: 50%; border: 3px solid #198754; display: inline-block; }
+.p-legenda i.k-szara { border-color: #6c757d; }
+.p-legenda i.k-zolta { border-color: #ffc107; }
+.p-legenda i.k-czerwona { border-color: #dc3545; }
+
+.p-wybor { position: relative; border: 1px solid #ced4da; border-radius: .5rem; overflow: hidden; cursor: crosshair; background: #fff; }
+.p-wybor img { display: block; width: 100%; user-select: none; -webkit-user-drag: none; }
+.p-wybor .p-znacznik { position: absolute; width: 4%; aspect-ratio: 1; border-radius: 50%; border: 3px solid #dc3545; background: rgba(220,53,69,.2); pointer-events: none; transform: translate(-50%, -50%); display: none; }
+.p-wybor .p-prostokat { position: absolute; border: 2px solid #0d6efd; background: rgba(13,110,253,.15); pointer-events: none; display: none; }
+.p-wybor .p-stale { position: absolute; border: 1px dashed rgba(13,110,253,.55); background: rgba(13,110,253,.05); pointer-events: none; font-size: max(8px, .8cqw); color: #0b4aa8; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1.1; }
+
+.p-tab-ikona { width: 26px; height: 26px; vertical-align: middle; margin-right: .3rem; }
+.p-kafel { display: block; text-decoration: none; color: inherit; border-radius: 1rem; padding: 1.2rem; background: linear-gradient(135deg, #1f3a5f, #19a7a8); color: #fff; height: 100%; transition: transform .15s; }
+.p-kafel:hover { transform: translateY(-3px); color: #fff; }
+.p-kafel i { font-size: 2rem; }
+.p-kafel h3 { font-size: 1.15rem; margin: .5rem 0 .2rem; }
+.p-kafel p { margin: 0; opacity: .9; font-size: .9rem; }
+.p-kafel.jasny { background: linear-gradient(135deg, #f59f00, #ff6b6b); }
+.p-kafel.ciemny { background: linear-gradient(135deg, #343a40, #1f3a5f); }
+.p-pracownik-wiersz img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+
+.p-model { position: absolute; inset: 0; overflow: hidden; background: #dde5ee; }
+.p-wys { display: inline-flex; align-items: center; gap: .4rem; margin: 0; font-size: .9rem; }
+.p-wys .form-range { width: 110px; }
+
+.p-3d .p-et { display: none; }
+.p-3d:hover { outline: 2px solid rgba(253,126,20,.9); outline-offset: 1px; background: rgba(253,126,20,.14); }
+.p-3d:hover .p-et, .p-3d.wyroznij .p-et, .p-3d.przeciaga .p-et { display: block; z-index: 70; }
+
+.p-wybor .p-wyb-warstwy { position: absolute; inset: 0; pointer-events: none; }
+.p-wybor .p-wyb-warstwy img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+.p-wybor .p-wyb-elementy { position: absolute; inset: 0; pointer-events: none; }
+.p-wybor .p-wyb-el { position: absolute; aspect-ratio: 1; opacity: .9; }
+.p-wybor .p-wyb-el img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.p-wybor .p-wyb-el.prac { border-radius: 50%; border: max(2px, .25cqw) solid #198754; background: #fff; overflow: hidden; }
